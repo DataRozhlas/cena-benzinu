@@ -14,7 +14,7 @@ const colors = {
   Germany: '#4daf4a',
   Slovakia: '#ff7f00',
   Poland: '#377eb8',
-}
+};
 
 Promise.all([
   fetch('./n95_price.json').then((d) => d.json()),
@@ -59,13 +59,13 @@ Promise.all([
       layout: 'horizontal',
     },
     tooltip: {
-      formatter: function() {
+      formatter() {
         const dte = new Date(this.x * 1000);
         let out = `${dte.getDate()}.  ${dte.getMonth() + 1}. ${dte.getFullYear()}`
         this.points.forEach((p) => {
-          out += `<br><b style="color:${p.color};">${p.series.name}:</b> ${Math.round(p.y * 10)/10} €`
-        })
-        return out
+          out += `<br><b style="color:${p.color};">${p.series.name}:</b> ${Math.round(p.y * 10) / 10} €`;
+        });
+        return out;
       },
       shared: true,
     },

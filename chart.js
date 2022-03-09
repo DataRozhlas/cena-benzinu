@@ -17,7 +17,7 @@ const colors = {
 };
 
 Promise.all([
-  fetch('./n95_price.json').then((d) => d.json()),
+  fetch('https://data.irozhlas.cz/cena-benzinu/n95_price.json').then((d) => d.json()),
 ]).then((res) => {
   const data = res[0];
   const srs = [];
